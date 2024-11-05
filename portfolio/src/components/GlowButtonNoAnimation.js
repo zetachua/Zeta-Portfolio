@@ -1,12 +1,21 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled,{keyframes} from 'styled-components';
+
+
+const bobbing = keyframes`
+  0%, 100% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-5px);
+  }
+`;
 
 const GlowButton = styled.button`
   position: absolute;
-  top: -2%;
-  left: 6%;
+  top: -1%;
+  left: -1%;
   z-index: 2;
-  transform: translateX(-50%);
   width: 60px;
   height: 60px;
   font-size: 1rem;
@@ -18,6 +27,7 @@ const GlowButton = styled.button`
   display:flex;
   justify-content:center;
   align-items:center;
+  animation: ${bobbing} 5s ease-in-out 1s infinite;
   box-shadow: 0 0 10px rgba(123, 206, 255, 0.7), 
               0 0 20px rgba(123, 206, 255, 0.5), 
               0 0 30px rgba(123, 206, 255, 0.3);
@@ -28,10 +38,15 @@ const GlowButton = styled.button`
                 0 0 40px rgba(123, 206, 255, 0.8), 
                 0 0 60px rgba(123, 206, 255, 0.6);
   }
+
+    @media (max-width: 768px) {
+      top: -3%;
+      left: -4%;
+    }
 `;
 
 const ButtonImage = styled.img`
-  height: 25px;
+  height: 28px;
   object-fit: contain;
   transform:rotate(180deg);
 `;

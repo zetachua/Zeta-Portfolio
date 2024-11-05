@@ -1,17 +1,26 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 
+const bobbing = keyframes`
+  0%, 100% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-5px);
+  }
+`;
+
 const glowAnimation = keyframes`
   0% {
     transform: translateY(100%);
-    opacity: 0;
+    opacity: 0.3;
   }
   50% {
     opacity: 1;
-    transform: translateY(40%);
+    transform: translateY(80%);
   }
   100% {
-    transform: translateY(38%);
+    transform: translateY(10%);
     opacity: 1;
   }
 `;
@@ -21,7 +30,6 @@ const GlowButton = styled.button`
   bottom: 25%;
   left: 55%;
   z-index: 2;
-  transform: translateX(-50%);
   width: 60px;
   height: 60px;
   font-size: 1rem;
@@ -33,12 +41,11 @@ const GlowButton = styled.button`
   display:flex;
   justify-content:center;
   align-items:center;
-  animation: ${glowAnimation} 2s ease-in-out forwards;
-  animation-iteration-count: 1; /* Ensures the animation only plays once */
+  animation: ${glowAnimation} 2s ease-in-out forwards,${bobbing} 5s ease-in-out 1s infinite;
   box-shadow: 0 0 10px rgba(123, 206, 255, 0.7), 
               0 0 20px rgba(123, 206, 255, 0.5), 
               0 0 30px rgba(123, 206, 255, 0.3);
-  transition: box-shadow 0.5s ease-in-out;
+  transition: box-shadow 1s ease-in-out forwards;
 
   &:hover {
     box-shadow: 0 0 20px rgba(123, 206, 255, 1), 
@@ -48,7 +55,7 @@ const GlowButton = styled.button`
 `;
 
 const ButtonImage = styled.img`
-  height: 25px;
+  height:28px;
   object-fit: contain;
 `;
 

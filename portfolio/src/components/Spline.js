@@ -1,6 +1,21 @@
 import React, { useEffect } from 'react';
 import { useMediaQuery } from '@mui/material';
+import styled,{keyframes} from 'styled-components';
 
+const bobbing = keyframes`
+  0%, 100% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-5px);
+  }
+`;
+
+
+const AnimatedContainer = styled.div`
+  height:100%;
+  animation: ${bobbing} 5s ease-in-out 1s infinite;
+`;
 const SplineViewer = () => {
     const matches768 = useMediaQuery('(max-width:768px)');
 
@@ -49,9 +64,11 @@ const SplineViewer = () => {
     }, []);
 
     return (
-        <div id="containers" style={{ display: 'flex', width: '100%', transform:matches768?'scale(0.5)':'scale(0.6)',flexWrap: 'wrap', justifyContent: 'center',paddingTop:matches768?'0rem':'3rem',marginTop:'-1.5rem' }}>
-            <spline-viewer url={"https://prod.spline.design/zcaVesmzqrSHDBND/scene.splinecode"}></spline-viewer>
-        </div>
+        <AnimatedContainer>
+            <div id="containers" style={{ display: 'flex', transform:matches768?'scale(0.5)':'scale(0.6)',flexWrap: 'wrap', justifyContent: 'center',paddingTop:matches768?'0rem':'10rem',marginTop:'-1.5rem'}}>
+                <spline-viewer url={"https://prod.spline.design/zcaVesmzqrSHDBND/scene.splinecode"}></spline-viewer>
+            </div>
+        </AnimatedContainer>
     );
 };
 

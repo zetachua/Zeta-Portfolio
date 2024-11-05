@@ -1,5 +1,4 @@
-import { Typography } from "@mui/material";
-import { CardBackground, Email } from "./Card.style";
+import { CardBackground } from "./Card.style";
 import { SocialIcons } from "./components/SocialIcons";
 import SplineViewer from "./components/Spline";
 import { AnimatedGlowButton } from "./components/GlowButton";
@@ -9,9 +8,6 @@ export function Card({onClick}){
     return(
         <CardBackground>
             <AnimatedGlowButton onClick={onClick}  />
-            <Email>
-                <Typography fontFamily={'MadeTommy'} variant={'caption'}>Zeta Chua</Typography>
-            </Email>
             <DownloadButton /> 
             <SocialIcons/>
             <SplineViewer></SplineViewer>
