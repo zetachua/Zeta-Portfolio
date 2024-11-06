@@ -17,7 +17,7 @@ const AnimatedContainer = styled.div`
   animation: ${bobbing} 5s ease-in-out 1s infinite;
 `;
 const SplineViewer = () => {
-    const matches1210 = useMediaQuery('(max-width:1210px)');
+    const matches1050 = useMediaQuery('(max-width:1050px)');
 
     useEffect(() => {
         const script = document.createElement('script');
@@ -65,7 +65,7 @@ const SplineViewer = () => {
 
     return (
         <AnimatedContainer>
-            <div id="containers" style={{ display: 'flex', transform:matches1210?'scale(0.5)':'scale(0.6)',flexWrap: 'wrap', justifyContent: 'center',paddingTop:matches1210?'0rem':'6rem'}}>
+            <div id="containers" style={{ display: 'flex', transform:matches1050?'scale(0.5)':'scale(0.6)',flexWrap: 'wrap', justifyContent: 'center',paddingTop:matches1050?'0rem':'3rem'}}>
                 <spline-viewer url={"https://prod.spline.design/zcaVesmzqrSHDBND/scene.splinecode"}></spline-viewer>
             </div>
         </AnimatedContainer>
