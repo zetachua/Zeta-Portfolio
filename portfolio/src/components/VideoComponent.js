@@ -4,8 +4,8 @@ import { GlowButtonNoAnim } from './GlowButtonNoAnimation';
 import { Typography, useMediaQuery } from '@mui/material';
 
 const ButtonImage = styled.img`
-    height: ${(props) => (props.isMobile ? '14px' : '22px')};
-    width: ${(props) => (props.isMobile ? '14px' : '22px')};
+    height: ${(props) => (props.ismobile ? '14px' : '22px')};
+    width: ${(props) => (props.ismobile ? '14px' : '22px')};
 
 `;
 
@@ -52,8 +52,8 @@ const Button = styled.button`
     display: flex;
     justify-content: center;
     align-items: center;
-    height: ${(props) => (props.isMobile ? '35px' : '45px')};
-    width: ${(props) => (props.isMobile ? '35px' : '45px')};
+    height: ${(props) => (props.ismobile ? '35px' : '45px')};
+    width: ${(props) => (props.ismobile ? '35px' : '45px')};
     align-self: center;
     border: 1px solid #DBC2F7;
     transition: box-shadow 0.3s, transform 0.3s;
@@ -79,8 +79,8 @@ const Button = styled.button`
      display: flex;
     justify-content: center;
     align-items: center;
-    height: ${(props) => (props.isMobile ? '35px' : '45px')};
-    width: ${(props) => (props.isMobile ? '35px' : '45px')};
+    height: ${(props) => (props.ismobile ? '35px' : '45px')};
+    width: ${(props) => (props.ismobile ? '35px' : '45px')};
     align-self: center;
     border: 1px solid #DBC2F7;
     transition: box-shadow 0.3s, transform 0.3s;
@@ -110,10 +110,10 @@ const VideoDescriptionContainer = styled.div`
 
 
 const ZetaLogo = styled.img`
-  width: ${(props) => (props.isMobile ? '68px' : '77px')};
-  height: ${(props) => (props.isMobile ? '21px' : '24px')};
+  width: ${(props) => (props.ismobile ? '68px' : '77px')};
+  height: ${(props) => (props.ismobile ? '21px' : '24px')};
   position: absolute;
-  bottom: ${(props) => (props.isMobile ? '3%' : '4%')};
+  bottom: ${(props) => (props.ismobile ? '3%' : '4%')};
   margin: auto;
   z-index: 10;
 `;
@@ -189,12 +189,12 @@ export function VideoPlayer({ onClick }) {
   return (
     <VideoContainer>
       <GlowButtonNoAnim onClick={onClick} />
-      <Button className="left" isMobile={matches768} onClick={handlePrevious}>
+      <Button className="left" ismobile={matches768} onClick={handlePrevious}>
         <ButtonImage style={{ transform: 'rotate(180deg)' }} src={rightArrow} alt="Next Video" />
       </Button>
 
       <VideoDescriptionContainer>
-        <video autoPlay muted loop src={videos[currentVideo].url} style={{ width: matches768?'270px':'400px', height:matches768? '340px':'500px', borderRadius: '20px', objectFit: 'cover' }} />
+        <video muted webkit-playsinline autoPlay playsinline loop src={videos[currentVideo].url} style={{ width: matches768?'270px':'400px', height:matches768? '340px':'500px', borderRadius: '20px', objectFit: 'cover' }} />
         <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
           <Typography variant="caption" fontFamily={'MadeTommy'} style={{ color: '#000', fontSize: '12px' }}>
             {videos[currentVideo].position}. {videos[currentVideo].title}
@@ -204,9 +204,9 @@ export function VideoPlayer({ onClick }) {
           </Typography>
         </div>
       </VideoDescriptionContainer>
-      <ZetaLogo isMobile={matches768} src={zetaLogo} alt="zeta logo" />
+      <ZetaLogo ismobile={matches768} src={zetaLogo} alt="zeta logo" />
 
-      <Button className="right" isMobile={matches768} onClick={handleNext}>
+      <Button className="right" ismobile={matches768} onClick={handleNext}>
         <ButtonImage src={rightArrow} alt="Next Video" />
       </Button>
     </VideoContainer>
