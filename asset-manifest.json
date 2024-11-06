@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/Zeta-Portfolio/static/css/main.bb320f0f.css",
-    "main.js": "/Zeta-Portfolio/static/js/main.41e72450.js",
+    "main.js": "/Zeta-Portfolio/static/js/main.c15cd757.js",
     "static/media/MADE TOMMY Medium_PERSONAL USE.otf": "/Zeta-Portfolio/static/media/MADE TOMMY Medium_PERSONAL USE.a1a50e698ce7cd493ce1.otf",
     "static/media/MADE TOMMY Light_PERSONAL USE.otf": "/Zeta-Portfolio/static/media/MADE TOMMY Light_PERSONAL USE.baa9639fea2a3259ba0b.otf",
     "index.html": "/Zeta-Portfolio/index.html",
     "main.bb320f0f.css.map": "/Zeta-Portfolio/static/css/main.bb320f0f.css.map",
-    "main.41e72450.js.map": "/Zeta-Portfolio/static/js/main.41e72450.js.map"
+    "main.c15cd757.js.map": "/Zeta-Portfolio/static/js/main.c15cd757.js.map"
   },
   "entrypoints": [
     "static/css/main.bb320f0f.css",
-    "static/js/main.41e72450.js"
+    "static/js/main.c15cd757.js"
   ]
 }
