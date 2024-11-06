@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { GlowButtonNoAnim } from './GlowButtonNoAnimation';
-import { Typography, useMediaQuery } from '@mui/material';
+import { Typography, useMediaQuery,CircularProgress  } from '@mui/material';
 
 const ButtonImage = styled.img`
     height: ${(props) => (props.ismobile ? '14px' : '22px')};
@@ -117,7 +117,29 @@ const ZetaLogo = styled.img`
   margin: auto;
   z-index: 10;
 `;
-
+// Styling for spinner overlay
+const SpinnerOverlay = styled.div`
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius:50px;
+  width: 400px; 
+  height:500px; 
+  margin:auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.8);
+  z-index: 10;
+  @media (max-width: 768px) {
+    width:270px;
+    height:340px;
+    margin-top:2.7rem;
+    border-radius:20px;
+;  }
+`;
 // VideoPlayer component
 export function VideoPlayer({ onClick }) {
   const matches768 = useMediaQuery('(max-width:768px)');
@@ -174,12 +196,16 @@ export function VideoPlayer({ onClick }) {
   ];
 
   const [currentVideo, setCurrentVideo] = useState(0);
+  const [loading, setLoading] = useState(true);
 
+ 
   const handleNext = () => {
+    setLoading(true);  // Set loading to true when switching videos
     setCurrentVideo((prev) => (prev + 1) % videos.length);
   };
 
   const handlePrevious = () => {
+    setLoading(true);  // Set loading to true when switching videos
     setCurrentVideo((prev) => (prev - 1 + videos.length) % videos.length);
   };
 
@@ -188,13 +214,21 @@ export function VideoPlayer({ onClick }) {
 
   return (
     <VideoContainer>
+     {loading && (
+        <SpinnerOverlay>
+          <CircularProgress color="primary" />
+        </SpinnerOverlay>
+      )}
+
       <GlowButtonNoAnim onClick={onClick} />
       <Button className="left" ismobile={matches768} onClick={handlePrevious}>
         <ButtonImage style={{ transform: 'rotate(180deg)' }} src={rightArrow} alt="Next Video" />
       </Button>
 
       <VideoDescriptionContainer>
-        <video muted webkit-playsinline autoPlay playsinline loop src={videos[currentVideo].url} style={{ width: matches768?'270px':'400px', height:matches768? '340px':'500px', borderRadius: '20px', objectFit: 'cover' }} />
+        <video 
+          onLoadedData={() => setLoading(false)}
+          muted webkit-playsinline autoPlay playsinline loop src={videos[currentVideo].url} style={{ width: matches768?'270px':'400px', height:matches768? '340px':'500px', borderRadius: '20px', objectFit: 'cover' }} />
         <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
           <Typography variant="caption" fontFamily={'MadeTommy'} style={{ color: '#000', fontSize: '12px' }}>
             {videos[currentVideo].position}. {videos[currentVideo].title}
