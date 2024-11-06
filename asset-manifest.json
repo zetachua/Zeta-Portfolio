@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Zeta-Portfolio/static/css/main.38fbba22.css",
-    "main.js": "/Zeta-Portfolio/static/js/main.8f53ae61.js",
+    "main.css": "/Zeta-Portfolio/static/css/main.bb320f0f.css",
+    "main.js": "/Zeta-Portfolio/static/js/main.6f1a99c0.js",
     "static/media/MADE TOMMY Medium_PERSONAL USE.otf": "/Zeta-Portfolio/static/media/MADE TOMMY Medium_PERSONAL USE.a1a50e698ce7cd493ce1.otf",
     "static/media/MADE TOMMY Light_PERSONAL USE.otf": "/Zeta-Portfolio/static/media/MADE TOMMY Light_PERSONAL USE.baa9639fea2a3259ba0b.otf",
     "index.html": "/Zeta-Portfolio/index.html",
-    "main.38fbba22.css.map": "/Zeta-Portfolio/static/css/main.38fbba22.css.map",
-    "main.8f53ae61.js.map": "/Zeta-Portfolio/static/js/main.8f53ae61.js.map"
+    "main.bb320f0f.css.map": "/Zeta-Portfolio/static/css/main.bb320f0f.css.map",
+    "main.6f1a99c0.js.map": "/Zeta-Portfolio/static/js/main.6f1a99c0.js.map"
   },
   "entrypoints": [
-    "static/css/main.38fbba22.css",
-    "static/js/main.8f53ae61.js"
+    "static/css/main.bb320f0f.css",
+    "static/js/main.6f1a99c0.js"
   ]
 }
