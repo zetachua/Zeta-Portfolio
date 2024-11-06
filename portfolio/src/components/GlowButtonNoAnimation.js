@@ -39,7 +39,7 @@ const GlowButton = styled.button`
                 0 0 60px rgba(123, 206, 255, 0.6);
   }
 
-    @media (max-width: 768px) {
+    @media (max-width: 1000px) {
       top: -3%;
       left: -4%;
     }

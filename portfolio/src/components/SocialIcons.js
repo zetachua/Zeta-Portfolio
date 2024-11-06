@@ -42,7 +42,7 @@ const IconContainer = styled.div`
   top: 5%;
   left: 5%;
   
-  @media (max-width: 768px) {
+  @media (max-width: 1000px) {
     top: 2%;
     left: 8%;
   }
