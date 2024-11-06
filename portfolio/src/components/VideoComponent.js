@@ -142,7 +142,6 @@ const SpinnerOverlay = styled.div`
 // VideoPlayer component
 export function VideoPlayer({ onClick }) {
   const matches1210 = useMediaQuery('(max-width:1210px)');
-  const matches1210H = useMediaQuery('(max-height:761px)');
   
   const videos = [
     {
