@@ -19,7 +19,9 @@ function App() {
   return (
     <div className="App">
       <SpotifyPlaylistEmbed></SpotifyPlaylistEmbed>
-      <BackgroundWrapper />
+      <BackgroundWrapper>
+        <div className="scratch-effect" />
+      </BackgroundWrapper>
       {showVideo ? (
         <VideoContainer>
           <VideoPlayer onClick={handleToggleToCard}/>

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 
-// Keyframe animations for floating and bobbing
+// Keyframe animations for floating, bobbing, and fading with rotation
 const floatUp = keyframes`
   0% {
     transform: translateY(50px);
@@ -22,37 +22,57 @@ const bobbing = keyframes`
   }
 `;
 
-// Icon styling with animation
+const fadeInRotate = keyframes`
+  0% {
+    opacity: 0;
+    transform: translateY(20px) rotate(-10deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotate(0);
+  }
+`;
+
 const IconImage = styled.img`
   width: 24px;
   height: 24px;
-  z-index:100;
   object-fit: contain;
   animation: ${floatUp} 1s ease-out forwards, ${bobbing} 5s ease-in-out 1s infinite;
 `;
 
-// Container for icons
 const IconContainer = styled.div`
   display: flex;
   position: absolute;
   flex-direction: column;
   align-items: center;
-  z-index:100;
-  transform:scale(0.9);
+  z-index: 100;
+  transform: scale(0.9);
   top: 5%;
   left: 5%;
-  
+
   @media (max-width: 1050px) {
     top: 2%;
     left: 8%;
   }
 `;
 
-// Link styling with hover effect
 const IconLink = styled.a`
-  transition: color 0.3s ease;
-  z-index:100;
-  margin-bottom: 8px; /* Add space between icons */
+  transition: color 0.2s ease;
+  z-index: 100;
+  margin-bottom: 8px;
+  animation: ${fadeInRotate} 4s ease-out infinite;
+  
+  &:nth-child(1) {
+    animation-delay: 0s;
+  }
+
+  &:nth-child(2) {
+    animation-delay: 0.1s;
+  }
+
+  &:nth-child(3) {
+    animation-delay: 0.2s;
+  }
 `;
 
 export function SocialIcons() {

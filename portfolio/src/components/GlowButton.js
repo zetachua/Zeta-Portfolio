@@ -28,7 +28,7 @@ const glowAnimation = keyframes`
 const GlowButton = styled.button`
   position: absolute;
   bottom: 25%;
-  left: 55%;
+  left: 60%;
   z-index: 2;
   width: 60px;
   height: 60px;
