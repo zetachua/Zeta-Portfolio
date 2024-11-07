@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { GlowButtonNoAnim } from './GlowButtonNoAnimation';
-import { Typography, useMediaQuery,  } from '@mui/material';
-// CircularProgress
+import { Typography, useMediaQuery,CircularProgress  } from '@mui/material';
 
 const ButtonImage = styled.img`
     height: ${(props) => (props.ismobile ? '14px' : '22px')};
@@ -140,6 +139,24 @@ const SpinnerOverlay = styled.div`
     border-radius:20px;
 ;  }
 `;
+
+
+const PlaceholderImage = styled.img`
+  width: ${(props) => (props.ismobile ? '271px' : '401px')};
+  height: ${(props) => (props.ismobile ? '341px' : '401px')};
+  border-radius: 20px;
+  object-fit: cover;
+  margin-top:-1.1rem;
+  z-index: 3;
+  transition: opacity 0.5s ease;
+  position: absolute;
+  display: ${(props) => (props.loading? 'block' : 'none')};
+
+  @media (max-width: 1050px) {
+        margin-top:-2rem;
+    }
+`;
+
 // VideoPlayer component
 export function VideoPlayer({ onClick }) {
   const matches1050 = useMediaQuery('(max-width:1050px)');
@@ -149,49 +166,58 @@ export function VideoPlayer({ onClick }) {
       position: '1',
       url: process.env.PUBLIC_URL + "/Unity AR Metaverse.mp4",
       title: "Unity AR Metaverse Game",
-      description: "Immersive AR experiences in a metaverse environment."
+      description: "Immersive AR experiences in a metaverse environment.",
+      placeholder: process.env.PUBLIC_URL + "/metaverse.jpg"
+
     },
     {
       position: '2',
       url: process.env.PUBLIC_URL + "/Unity AR Web3 Game.mp4",
       title: "Unity AR Web3 Game",
-      description: "Combines augmented reality with blockchain integration."
+      description: "Combines augmented reality with blockchain integration.",
+      placeholder: process.env.PUBLIC_URL + "/winfinity.png"
     },
     {
       position: '3',
       url: process.env.PUBLIC_URL + "/Unity VR Oculus Visually Impaired Simulation.mov",
       title: "Unity VR Simulation for Visually Impaired",
-      description: "Accessible VR experience developed for Oculus using Unity."
+      description: "Accessible VR experience developed for Oculus using Unity.",
+      placeholder: process.env.PUBLIC_URL + "/visualimpair.jpg"
     },
     {
       position: '4',
       url: process.env.PUBLIC_URL + "/Unity WebGL Tensorflow Motion Capture.mov",
       title: "Unity WebGL TensorFlow Motion Capture",
-      description: "Real-time motion capture in a browser with Unity and TensorFlow."
+      description: "Real-time motion capture in a browser with Unity and TensorFlow.",
+      placeholder: process.env.PUBLIC_URL + "/motioncapture.jpg"
     },
     {
       position: '5',
       url: process.env.PUBLIC_URL + "/Unity WebGL Typing Game.mov",
       title: "Unity WebGL Typing Game",
-      description: "Educational typing game offering interactive gameplay online."
+      description: "Educational typing game offering interactive gameplay online.",
+      placeholder: process.env.PUBLIC_URL + "/typinggame.jpg"
     },
     {
       position: '6',
       url: process.env.PUBLIC_URL + "/Web AR Tesla Model S AR ScreenRecord.mp4",
       title: "Web AR Tesla Model S",
-      description: "Web-based AR experience featuring the Tesla Model S."
+      description: "Web-based AR experience featuring the Tesla Model S.",
+      placeholder: process.env.PUBLIC_URL + "/webar.png"
     },
     {
       position: '7',
       url: process.env.PUBLIC_URL + "/Web3 Frontend Software Engineer.mov",
       title: "Web3 Frontend Project",
-      description: "Frontend project with decentralized app functionality for Web3."
+      description: "Frontend project with decentralized app functionality for Web3.",
+      placeholder: process.env.PUBLIC_URL + "/mementomori.jpg"
     },
     {
       position: '8',
       url: process.env.PUBLIC_URL + "/Reactjs Frontend Social Media Website.mp4",
       title: "React.js Social Media Website",
-      description: "Frontend project for a social media site using React.js."
+      description: "Frontend project for a social media site using React.js.",
+      placeholder: process.env.PUBLIC_URL + "/reactjsocial.jpg"
     }
   ];
 
@@ -214,21 +240,28 @@ export function VideoPlayer({ onClick }) {
 
   return (
     <VideoContainer>
-     {/* {loading && (
+      {loading && (
         <SpinnerOverlay>
-          <CircularProgress color="primary" />
+          <CircularProgress color="white" />
         </SpinnerOverlay>
-      )} */}
-
+      )}
+    
       <GlowButtonNoAnim onClick={onClick} />
       <Button className="left" ismobile={matches1050} onClick={handlePrevious}>
         <ButtonImage style={{ transform: 'rotate(180deg)' }} src={rightArrow} alt="Next Video" />
       </Button>
 
       <VideoDescriptionContainer>
+        <PlaceholderImage
+          src={videos[currentVideo].placeholder}
+          alt="Loading..."
+          loading={loading}
+          ismobile={matches1050}
+        >
+        </PlaceholderImage>
         <video 
           onLoadedData={() => setLoading(false)}
-          muted controls playsinline loop src={videos[currentVideo].url} style={{ width: matches1050?'270px':'400px', height:matches1050? '340px':'400px', borderRadius: '20px', objectFit: 'cover' }} />
+          muted controls playsinline loop src={videos[currentVideo].url} style={{ width: matches1050?'270px':'400px', zIndex:'1', height:matches1050? '340px':'400px', borderRadius: '20px', objectFit: 'cover' }} />
         <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
           <Typography variant="caption" fontFamily={'MadeTommy'} style={{ color: '#000', fontSize: '12px' }}>
             {videos[currentVideo].position}. {videos[currentVideo].title}
