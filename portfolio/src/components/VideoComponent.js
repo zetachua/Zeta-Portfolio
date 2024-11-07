@@ -146,14 +146,14 @@ const PlaceholderImage = styled.img`
   height: ${(props) => (props.ismobile ? '341px' : '401px')};
   border-radius: 20px;
   object-fit: cover;
-  margin-top:-1.9rem;
+  margin-top:-2.5rem;
   z-index: 3;
   transition: opacity 0.5s ease;
   position: absolute;
   display: ${(props) => (props.loading? 'block' : 'none')};
 
   @media (max-width: 1050px) {
-        margin-top:-2.7rem;
+        margin-top:-3.5rem;
     }
 `;
 
